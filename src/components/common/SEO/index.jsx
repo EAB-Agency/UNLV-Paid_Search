@@ -4,9 +4,7 @@ import Thumbnail from 'assets/thumbnail/thumbnail.png';
 import {
   url,
   defaultDescription,
-  social,
   defaultTitle,
-  socialLinks,
   address,
   contact,
   legalName,
