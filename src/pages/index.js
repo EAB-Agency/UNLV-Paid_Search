@@ -5,7 +5,7 @@ import ContactForm from 'components/landing/Contact/ContactForm';
 export default () => (
   <Layout>
     <SEO />
-    <div class="page-wrap">
+    <div className="page-wrap">
     <h1>UNLV Paid Search</h1>
 
     <main role="main" className="lp-main page-main">

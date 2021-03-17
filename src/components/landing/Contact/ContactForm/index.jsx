@@ -1,55 +1,62 @@
 import React from 'react';
 import axios from 'axios';
 import { Formik, Form, FastField, ErrorMessage } from 'formik';
-import Recaptcha from 'react-google-recaptcha';
 import * as Yup from 'yup';
 import { Button, Input } from 'components/common';
 import { Error, Center, InputField } from './styles';
 
+const initialValues = {
+  first_name: "",
+  last_name: "",
+  preferred_email_address: "",
+  date_of_birth: "",
+  high_school_graduation_ye: "",
+  success: false,
+};
+
 export default () => (
   <Formik
-    initialValues={{
-      name: '',
-      email: '',
-      message: '',
-      recaptcha: '',
-      success: false,
-    }}
+    initialValues={initialValues}
     validationSchema={Yup.object().shape({
-      name: Yup.string().required('Full name field is required'),
-      email: Yup.string()
-        .email('Invalid email')
-        .required('Email field is required'),
-      message: Yup.string().required('Message field is required'),
-      recaptcha: Yup.string().required('Robots are not welcome yet!'),
+      first_name: Yup.string().required("Full name field is required"),
+      preferred_email_address: Yup.string()
+        .email("Invalid email")
+        .required("Email field is required"),
+      message: Yup.string().required("Message field is required"),
     })}
-    onSubmit={async ({ name, email, message }, { setSubmitting, resetForm, setFieldValue }) => {
+    onSubmit={async (
+      { first_name, last_name, preferred_email_address },
+      { setSubmitting, resetForm, setFieldValue }
+    ) => {
       try {
         await axios({
-          method: 'POST',
-          // url: `${process.env.GATSBY_PORTFOLIO_FORMIK_ENDPOINT}`,
+          method: "POST",
+          url: `${process.env.GATSBY_PORTFOLIO_FORMIK_ENDPOINT}`,
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           data: JSON.stringify({
-            name,
-            email,
-            message,
+            first_name,
+            last_name,
+            preferred_email_address,
           }),
         });
         setSubmitting(false);
-        setFieldValue('success', true);
+        setFieldValue("success", true);
         setTimeout(() => resetForm(), 6000);
       } catch (err) {
         setSubmitting(false);
-        setFieldValue('success', false);
-				alert('Something went wrong, please try again!') // eslint-disable-line
+        setFieldValue("success", false);
+        alert("Something went wrong, please try again!"); // eslint-disable-line
       }
     }}
   >
     {({ values, touched, errors, setFieldValue, isSubmitting }) => (
       <Form>
-        <h2>This will be replaced with form from campaign data studio. this just came with the starter code</h2>
+        <h2>
+          This will be replaced with form from campaign data studio. this just
+          came with the starter code
+        </h2>
         <InputField>
           <Input
             as={FastField}
@@ -64,18 +71,20 @@ export default () => (
         </InputField>
         <InputField>
           <Input
-            id="email"
+            id="preferred_email_address"
             aria-label="email"
             component="input"
             as={FastField}
             type="email"
-            name="email"
+            name="preferred_email_address"
             placeholder="Email*"
-            error={touched.email && errors.email}
+            error={
+              touched.preferred_email_address && errors.preferred_email_address
+            }
           />
-          <ErrorMessage component={Error} name="email" />
+          <ErrorMessage component={Error} name="preferred_email_address" />
         </InputField>
-        <InputField>
+        {/* <InputField>
           <Input
             as={FastField}
             component="textarea"
@@ -88,22 +97,15 @@ export default () => (
             error={touched.message && errors.message}
           />
           <ErrorMessage component={Error} name="message" />
-        </InputField>
-        {values.name && values.email && values.message && (
-          <InputField>
-            <FastField
-              component={Recaptcha}
-              // sitekey={process.env.GATSBY_PORTFOLIO_RECAPTCHA_KEY}
-              name="recaptcha"
-              onChange={value => setFieldValue('recaptcha', value)}
-            />
-            <ErrorMessage component={Error} name="recaptcha" />
-          </InputField>
-        )}
+        </InputField> */}
+
         {values.success && (
           <InputField>
             <Center>
-              <h4>Your message has been successfully sent, I will get back to you ASAP!</h4>
+              <h4>
+                Your message has been successfully sent, I will get back to you
+                ASAP!
+              </h4>
             </Center>
           </InputField>
         )}
@@ -112,6 +114,7 @@ export default () => (
             Submit
           </Button>
         </Center>
+        <pre>{JSON.stringify(values)}</pre>
       </Form>
     )}
   </Formik>
