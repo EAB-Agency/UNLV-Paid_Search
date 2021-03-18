@@ -16,6 +16,15 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
+      resolve: `gatsby-plugin-modal-routing`,
+      options: {
+        appElement: '#___gatsby',
+        modalProps: {
+          className: 'modalClass',
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-nprogress',
       options: {
         color: config.themeColor,
@@ -34,31 +43,7 @@ module.exports = {
       options: {
         logo: './static/favicon/favicon-512.png',
         injectHTML: true,
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          twitter: false,
-          yandex: false,
-          windows: false,
-        },
       },
     },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: config.defaultTitle,
-        short_name: 'starter',
-        start_url: '/',
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-        display: 'minimal-ui',
-        icon: './static/favicon/favicon-512.png',
-      },
-    },
-    'gatsby-plugin-offline',
   ],
 };

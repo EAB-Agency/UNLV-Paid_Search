@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const Global = createGlobalStyle`
+  .modalClass {
+    border: 5px solid red;
+  }
   html {
     font-family: 'Roboto', Helvetica, sans-serif;
     -ms-text-size-adjust: 100%;
