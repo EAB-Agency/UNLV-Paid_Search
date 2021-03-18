@@ -5,13 +5,8 @@ import { Wrapper, Flex, Links, Details } from './styles';
 export const Footer = () => (
   <Wrapper>
     <Flex as={Container}>
-      <Details>
-        <h2></h2>
-        
-      </Details>
-      <Links>
-       
-      </Links>
+      <Details></Details>
+      <Links></Links>
     </Flex>
   </Wrapper>
 );
