@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const Global = createGlobalStyle`
   .modalClass {
-    border: 5px solid red;
+    border: 5px solid greenyellow;
   }
   html {
     font-family: 'Roboto', Helvetica, sans-serif;

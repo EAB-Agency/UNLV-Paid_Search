@@ -40,23 +40,10 @@ export const SEO = ({ title = defaultTitle, description = defaultDescription }) 
       <title>{title}</title>
       <html lang="en" dir="ltr" />
 
-      <script type="text/javascript">
-        {`if (typeof MauticSDKLoaded == 'undefined') {
-        var MauticSDKLoaded = true;
-        var head            = document.getElementsByTagName('head')[0];
-        var script          = document.createElement('script');
-        script.type         = 'text/javascript';
-        script.src          = 'https://university-of-nevada-las-vegas.contact-server.com/mautic/media/js/mautic-form.js?v4e3bf704';
-        script.onload       = function() {
-            MauticSDK.onLoad();
-        };
-        head.appendChild(script);
-        var MauticDomain = 'https://university-of-nevada-las-vegas.contact-server.com';
-        var MauticLang   = {
-            'submittingMessage': "Please wait..."
-        }
-    }`}
-      </script>
+      <script
+        type="text/javascript"
+        src="//university-of-nevada-las-vegas.contact-server.com/form/generate.js?id=1"
+      ></script>
     </Helmet>
   );
 };
