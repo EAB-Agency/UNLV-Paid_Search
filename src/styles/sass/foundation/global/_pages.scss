@@ -96,7 +96,11 @@
   background: $c-darkgrey url(../../assets/unlv-hero-img.png) no-repeat center;
   background-size: cover;
   @include fluidRem(padding-top, 2rem, 5rem);
-  @include fluidRem(padding-bottom, 2rem, 12rem);
+  @include fluidRem(padding-bottom, 2rem, 5rem);
+
+  @media (min-width: $mq-700) {
+    @include fluidRem(padding-bottom, 2rem, 12rem);
+  }
 
   @media (min-width: $mq-900) {
     background-attachment: fixed;
@@ -149,11 +153,12 @@ section {
     display: flex;
     flex-direction: column;
     max-width: $mq-1000;
-    margin-top: -5rem;
+    margin-top: -1rem;
     background: $c-darkgrey;
 
-    @media (min-width: $mq-600) {
+    @media (min-width: $mq-700) {
       flex-direction: row;
+      margin-top: -5rem;
     }
 
     ul {
@@ -166,7 +171,7 @@ section {
       list-style: none;
       margin: 0;
 
-      @media (min-width: $mq-600) {
+      @media (min-width: $mq-700) {
         width: 58%;
         flex-shrink: 0;
       }
@@ -209,7 +214,7 @@ section {
         color: lighten($c-red, 30%);
       }
 
-      @media (min-width: $mq-600) {
+      @media (min-width: $mq-700) {
         padding-left: 4rem;
         &::before {
           content: "";
@@ -563,15 +568,21 @@ section {
 
 .cta {
   display: block;
-  background: rgba($c-gray, 0.95);
+  background: rgba($c-darkgrey, 0.95);
   padding: 0.2rem 0.5rem;
-  position: fixed;
+  position: sticky;
+  z-index: 100;
   bottom: 0;
   width: 100%;
   margin-top: -3em;
+  // margin-bottom: 2em;
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .button {
+    @include fluidRem(font-size, 1rem, 1.2rem);
   }
 }
