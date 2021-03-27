@@ -13,8 +13,32 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-google-fonts-v2',
+      options: {
+        fonts: [
+          {
+            family: 'Roboto Condensed',
+            variable: true,
+            weights: ['400,800'],
+          },
+          {
+            family: 'Roboto Slab',
+            variable: true,
+            weights: ['400,800'],
+          },
+          {
+            family: 'Lato',
+            variable: true,
+            weights: ['400..900'],
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-modal-routing`,
       options: {

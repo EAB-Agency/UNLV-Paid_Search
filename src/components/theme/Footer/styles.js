@@ -1,16 +1,7 @@
-import footerIllustration from 'assets/illustrations/footer.svg';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  padding: 28rem 0 4rem 0;
-  /* background-image: url(${footerIllustration});
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat; */
-
-  @media (max-width: 1960px) {
-    padding: 14rem 0 4rem;
-  }
+  // padding: 28rem 0 4rem 0;
 `;
 
 export const Flex = styled.div`
@@ -31,6 +22,7 @@ export const Links = styled.div`
 
   a {
     margin: 0 0.5rem;
+    // font-family: 'Roboto Condensed', sans-serif;
 
     img {
       margin: 0;

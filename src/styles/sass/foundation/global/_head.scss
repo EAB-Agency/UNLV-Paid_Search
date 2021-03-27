@@ -1,0 +1,119 @@
+/////////////////
+//HEAD
+/////////////////
+
+@include keyframes(stickyheader) {
+  0% {
+    top: -10em;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.site-header {
+  display: block;
+  width: 100%;
+  z-index: 999;
+  transform: translate3d(0, 0, 0);
+  position: absolute;
+  top: 0;
+
+  //   .wrapper {
+  //     display: flex;
+  //     justify-content: space-between;
+  //     width: 100%;
+  //     max-width: $mq-1300;
+  //     margin: 0 auto;
+  //     max-width: $mq-1440;
+  //     @include fluidRem(padding, 1rem 1rem, 1rem 2rem);
+  //   }
+
+  //   nav {
+  //     flex-shrink: 0;
+  //   }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+
+  &.sticked {
+    // position: -webkit-sticky;
+    // position: sticky;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    @include animation(stickyheader 0.5s ease-out forwards);
+    box-shadow: 0 0 0.8em rgba(black, 0.08);
+    // transition: top 0.35s ease-in;
+  }
+}
+
+.school-logo {
+  display: block;
+  width: 100%;
+  background: rgba(177, 2, 2, 0.92) url(../../assets/header-texture.png)
+    repeat-x;
+  @include fluidRem(padding, 0.5rem 0, 0.5rem 0);
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.school-name {
+  display: block;
+  width: 100%;
+  background: rgba(72, 77, 81, 0.94);
+  padding: 0.2rem 0;
+  color: white;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(221, 221, 221, 0.9);
+}
+
+// .site-branding-nav {
+//   display: flex;
+//   flex-direction: column;
+//   width: 100%;
+//   max-width: $mq-1300;
+//   margin: 0.5em auto;
+//   position: relative;
+
+//   // ============================
+//   // Toggled styles when Nav Hamburguer clicked.
+//   &.toggled {
+//     @media (max-width: $nav-breakpoint) {
+//     }
+
+//     .site-branding {
+//       padding-bottom: 2em;
+//       background: $c-blue;
+//       position: relative;
+
+//       &::after {
+//         content: "";
+//         display: block;
+//         width: 100%;
+//         border-top: 1px solid $c-red;
+//         position: absolute;
+//         bottom: 1em;
+//       }
+//     }
+//   }
+
+//   @media (min-width: $nav-breakpoint) {
+//     flex-direction: row;
+//     align-items: center;
+//     justify-content: space-between;
+//   }
+// }
+
+// .site-content {
+//   // margin-top: 5em !important;
+//   @media screen and (-webkit-min-device-pixel-ratio: 0) {
+//     // margin-top: 1em !important;
+//   }
+// }
