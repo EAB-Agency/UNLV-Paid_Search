@@ -1,8 +1,8 @@
-import React from "react";
-import { Layout, SEO } from "components/common";
-import { Link } from "gatsby";
-import { ModalRoutingContext } from "gatsby-plugin-modal-routing";
-import ContactForm from "components/landing/Contact/ContactForm";
+import React from 'react';
+import { Layout, SEO } from 'components/common';
+import { Link } from 'gatsby';
+import { ModalRoutingContext } from 'gatsby-plugin-modal-routing';
+import ContactForm from 'components/landing/Contact/ContactForm';
 
 export default () => (
   <Layout>
