@@ -1,18 +1,19 @@
 import React from 'react';
-import axios from 'axios';
 import { Formik, Form, FastField, ErrorMessage } from 'formik';
-import Recaptcha from 'react-google-recaptcha';
 import * as Yup from 'yup';
 import { Button, Input } from 'components/common';
 import { Error, Center, InputField } from './styles';
+
+const encode = data =>
+  Object.keys(data)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
 
 export default () => (
   <Formik
     initialValues={{
       name: '',
       email: '',
-      message: '',
-      recaptcha: '',
       success: false,
     }}
     validationSchema={Yup.object().shape({
@@ -20,36 +21,25 @@ export default () => (
       email: Yup.string()
         .email('Invalid email')
         .required('Email field is required'),
-      message: Yup.string().required('Message field is required'),
-      recaptcha: Yup.string().required('Robots are not welcome yet!'),
     })}
-    onSubmit={async ({ name, email, message }, { setSubmitting, resetForm, setFieldValue }) => {
-      try {
-        await axios({
-          method: 'POST',
-          // url: `${process.env.GATSBY_PORTFOLIO_FORMIK_ENDPOINT}`,
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: new URLSearchParams(name, email, message).toString(),
-          data: JSON.stringify({
-            name,
-            email,
-            message,
-          }),
-        });
-        setSubmitting(false);
-        setFieldValue('success', true);
-        setTimeout(() => resetForm(), 6000);
-      } catch (err) {
-        setSubmitting(false);
-        setFieldValue('success', false);
-        alert("Something went wrong, please try again!"); // eslint-disable-line
-      }
+    onSubmit={(values, actions) => {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'unlv-contact', ...values }),
+      })
+        .then(() => {
+          alert('Success');
+          actions.resetForm();
+        })
+        .catch(() => {
+          alert('Error');
+        })
+        .finally(() => actions.setSubmitting(false));
     }}
   >
-    {({ values, touched, errors, setFieldValue, isSubmitting }) => (
-      <Form netlify>
+    {({ values, touched, errors, isSubmitting }) => (
+      <Form name="unlv-contact" data-netlify>
         <InputField>
           <Input
             as={FastField}
@@ -75,21 +65,8 @@ export default () => (
           />
           <ErrorMessage component={Error} name="email" />
         </InputField>
-        <InputField>
-          <Input
-            as={FastField}
-            component="textarea"
-            aria-label="message"
-            id="message"
-            rows="8"
-            type="text"
-            name="message"
-            placeholder="Message*"
-            error={touched.message && errors.message}
-          />
-          <ErrorMessage component={Error} name="message" />
-        </InputField>
-        {values.name && values.email && values.message && (
+
+        {/* {values.name && values.email && values.message && (
           <InputField>
             <FastField
               component={Recaptcha}
@@ -99,11 +76,11 @@ export default () => (
             />
             <ErrorMessage component={Error} name="recaptcha" />
           </InputField>
-        )}
+        )} */}
         {values.success && (
           <InputField>
             <Center>
-              <h4>Your message has been successfully sent, I will get back to you ASAP!</h4>
+              <h4>Thank you for submitting your infomation! We will be in touch with you soon!</h4>
             </Center>
           </InputField>
         )}
