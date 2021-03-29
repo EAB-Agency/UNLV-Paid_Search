@@ -4,7 +4,8 @@ module.exports = {
   author: 'EAB',
   url: 'https://www.unlv.edu',
   legalName: 'University of Nevada, Las Vegas',
-  defaultDescription: 'UNLV is a premier metropolitan research university. Its 332-acre main campus, located on the Southern tip of Nevada in a desert valley surrounded by mountains, is home to more than 350 undergraduate and graduate degrees, all accredited by the Northwest Commission on Colleges and Universities.',
+  defaultDescription:
+    'UNLV is a premier metropolitan research university. Its 332-acre main campus, located on the Southern tip of Nevada in a desert valley surrounded by mountains, is home to more than 350 undergraduate and graduate degrees, all accredited by the Northwest Commission on Colleges and Universities.',
   googleAnalyticsID: 'UA-19483576-1',
   themeColor: '#b10202',
   backgroundColor: '#f5f6f8',

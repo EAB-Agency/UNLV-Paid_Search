@@ -35,7 +35,7 @@ export const SEO = ({ title = defaultTitle, description = defaultDescription }) 
     <Helmet>
       <meta name="description" content={description} />
       <meta name="image" content={Thumbnail} />
-
+      <meta name="application-name" content="&nbsp;" />
       <script type="application/ld+json">{structuredDataOrganization}</script>
       <title>{title}</title>
       <html lang="en" dir="ltr" />
