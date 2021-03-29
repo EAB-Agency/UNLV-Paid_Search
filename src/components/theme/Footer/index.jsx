@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from 'components/common';
+import { Link } from 'gatsby-plugin-modal-routing';
 import { Wrapper, Flex, Links, Details } from './styles';
 
 export const Footer = () => (
@@ -17,12 +18,12 @@ export const Footer = () => (
       </Details>
       <Links>
         <Flex>
-          <a href="#" className="button">
+          <Link className="button" to="/help" asModal>
             Help
-          </a>
-          <a href="#" className="button">
+          </Link>
+          <Link className="button" to="/privacy" asModal>
             Privacy
-          </a>
+          </Link>
         </Flex>
       </Links>
     </Flex>

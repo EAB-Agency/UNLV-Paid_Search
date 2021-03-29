@@ -20,34 +20,36 @@
   @include fluidRem(padding, 3rem 1rem 1rem, 3rem 2rem 2rem);
   border-top: 0.5em solid $c-red;
   position: relative;
-  max-width: $mq-600;
+  max-width: $mq-800;
 
-  &::before {
-    content: "";
-    content: " ";
-    display: block;
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border-radius: 50%;
-    border: 6px solid #fff;
-    border-color: #fff transparent #fff transparent;
-    animation: lds-dual-ring 1.2s linear infinite;
-  }
-  @keyframes lds-dual-ring {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+  // ! Start Preloader
+  // &::before {
+  //   content: "";
+  //   content: " ";
+  //   display: block;
+  //   position: absolute;
+  //   width: 64px;
+  //   height: 64px;
+  //   margin: 8px;
+  //   border-radius: 50%;
+  //   border: 6px solid #fff;
+  //   border-color: #fff transparent #fff transparent;
+  //   animation: lds-dual-ring 1.2s linear infinite;
+  // }
+  // @keyframes lds-dual-ring {
+  //   0% {
+  //     transform: rotate(0deg);
+  //   }
+  //   100% {
+  //     transform: rotate(360deg);
+  //   }
+  // }
+  //! -- End Preloader
 
-  div {
-    position: relative;
-    z-index: 10;
-  }
+  // div {
+  //   position: relative;
+  //   z-index: 10;
+  // }
 
   form {
     display: block;

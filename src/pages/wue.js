@@ -51,68 +51,7 @@ export default () => (
             </div>
           </Container>
         </section>
-        <section className="graduates">
-          <Container>
-            <div className="intro">
-              <h2>
-                Hospitality College Graduates Don't Just Get Diplomas, <strong>They Get Jobs</strong>
-              </h2>
-              <p>
-                Our focus on practical academics, including work, internships, and mentorship opportunities, provides
-                graduates with highly marketable skills. And with around 100 recruiters visiting campus twice yearly,
-                our students have unparalleled exposure to hiring employers. Below, you'll find a small sample of recent
-                grads who leveraged their degrees into immediate job offers:
-              </p>
-            </div>
-            <ul className="the-graduates">
-              <li>
-                <StaticImage
-                  src="../assets/kristina_dean.jpeg"
-                  alt="Kristina Dean - Food & beverage mangagement trainee"
-                  placeholder="blurred"
-                  loading="lazy"
-                />
-                <div className="content">
-                  <p>Kristina Dean</p>
-                  <h4>
-                    <strong>Food & beverage management trainee</strong> (at a major hotel brand in Los Angeles)
-                  </h4>
-                  <p>San Diego, CA</p>
-                </div>
-              </li>
-              <li>
-                <StaticImage
-                  src="../assets/evan_swieczkowski.jpeg"
-                  alt="Evan Swieczkowski - Assistant golf professional"
-                  placeholder="blurred"
-                  loading="lazy"
-                />
-                <div className="content">
-                  <p>Evan Swieczkowski</p>
-                  <h4>
-                    <strong>Assistant golf professional</strong> (at a popular country club in Las Vegas)
-                  </h4>
-                  <p>Las Vegas, NV</p>
-                </div>
-              </li>
-              <li>
-                <StaticImage
-                  src="../assets/sonia_vazquez_quintero.jpeg"
-                  alt="Sonia Vasquez-Quintero - Guest service agent"
-                  placeholder="blurred"
-                  loading="lazy"
-                />
-                <div className="content">
-                  <p>Sonia Vasquez-Quintero</p>
-                  <h4>
-                    <strong>Guest service agent</strong> (at a luxury hotel in Las Vegas)
-                  </h4>
-                  <p>Hawaii</p>
-                </div>
-              </li>
-            </ul>
-          </Container>
-        </section>
+
         <section className="finaid">
           <Container className="cols">
             <div className="col-60">
@@ -156,13 +95,27 @@ export default () => (
                 Location: <strong>UNLV Campus</strong>
               </p>
             </div>
-            <h2>Tailor Your UNLV Hospitality Program to Fit Your Personal Goals</h2>
-            <p>Design the hospitality degree that is right for you with our specialized concentration offerings.</p>
+            <h2>
+              5 Reasons to earn a Bachelor's Degree in <strong>Hospitality Management from UNLV</strong>
+            </h2>
+            <ul>
+              <li>Top-ranked hospitality and leisure management program in the country and 2nd in the world.</li>
+              <li>Opportunity to study, work, and intern in the heart of the industry.</li>
+              <li>Low cost relative to comparable programs.</li>
+              <li>Flexible curriculum that allows students to specialize in different segments of the industry.</li>
+              <li>
+                5. The right mix of management skills and hands-on training to make an immediate impact in your career.
+              </li>
+            </ul>
           </Container>
         </section>
 
         <section className="concentrations">
           <Container>
+            <header className="concentrations-head">
+              <h2>A Top-Ranked Hospitality Management Program in the Country</h2>
+              <p>Design the hospitality degree that is right for you with our specialized concentration offerings.</p>
+            </header>
             <div className="cols">
               <article className="col-50">
                 <h4>Event and Design Management</h4>
@@ -173,9 +126,9 @@ export default () => (
                   loading="lazy"
                 />
                 <p>
-                  Use your imagination and critical thinking skills to create and design unique event experiences. This
-                  concentration is a perfect fit for students who are looking to explore careers in entertainment
-                  management and event management.
+                  At UNLV you will use your imagination and critical thinking skills to create and design unique event
+                  experiences. This concentration is a perfect fit for students who are looking to explore careers in
+                  entertainment management and event management.
                 </p>
               </article>
               <article className="col-50">
@@ -187,9 +140,9 @@ export default () => (
                   loading="lazy"
                 />
                 <p>
-                  Experience a one-of-a-kind curriculum with our gaming management concentration. Our curriculum cannot
-                  be found anywhere else. The program is designed to equip you with the skills you need to succeed in
-                  roles in casino operations, casino accounting, and gaming regulations.
+                  Experience a one-of-a-kind curriculum with our gaming management concentration. Our gaming management
+                  curriculum cannot be found anywhere else. The program is designed to equip you with the skills you
+                  need to succeed in roles in casino operations, casino accounting, and gaming regulations.
                 </p>
               </article>
             </div>
@@ -203,10 +156,9 @@ export default () => (
                   loading="lazy"
                 />
                 <p>
-                  Learn the intricacies of food production, service, marketing, supervision, and financial management.
-                  These skills will provide you with the foundation you need to perform in careers such as restaurant
-                  and culinary management. Stand out in the restaurant industry with our innovative restaurant
-                  management concentration.
+                  This program is best for student looking to begin careers in beverage operations, beverage management,
+                  or beverage distribution. This sector of the hospitality industry is steadily growing and offers
+                  unique opportunities for a fun an exciting career.
                 </p>
               </article>
               <article className="col-50">
@@ -218,9 +170,10 @@ export default () => (
                   loading="lazy"
                 />
                 <p>
-                  This program is best for students looking to begin careers in beverage operations, beverage
-                  management, or beverage distribution. This sector of the hospitality industry is steadily growing and
-                  offers unique opportunities for a fun and exciting career.
+                  At UNLV you will learn the intricacies of food production, service, marketing, supervision, and
+                  financial management. These skills will provide you with the foundation you need to perform in careers
+                  such as restaurant and culinary management. Stand out in the restaurant industry with our innovative
+                  restaurant management concentration.
                 </p>
               </article>
             </div>
