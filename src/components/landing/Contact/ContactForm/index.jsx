@@ -30,9 +30,12 @@ export default () => (
       })
         .then(() => {
           alert('Success');
+          actions.setFieldValue('success', true);
           actions.resetForm();
         })
         .catch(() => {
+          actions.setSubmitting(false);
+          actions.setFieldValue('success', false);
           alert('Error');
         })
         .finally(() => actions.setSubmitting(false));
