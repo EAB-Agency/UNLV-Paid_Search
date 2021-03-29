@@ -11,18 +11,6 @@ const encode = data =>
     .join('&');
 
 export default () => (
-<<<<<<< HEAD
-  <div id="mauticform_wrapper_paidsearchcontactformv1" className="contactForm">
-    <iframe
-      title="UNLV Contact Form"
-      src="//university-of-nevada-las-vegas.contact-server.com/form/1"
-      width="400"
-      height="600"
-    >
-      <p>Your browser does not support iframes.</p>
-    </iframe>
-  </div>
-=======
   <Formik
     initialValues={{
       name: '',
@@ -109,5 +97,4 @@ export default () => (
       </Form>
     )}
   </Formik>
->>>>>>> 343660499537f20009e5889ba9cf4a8f68940a5e
 );
