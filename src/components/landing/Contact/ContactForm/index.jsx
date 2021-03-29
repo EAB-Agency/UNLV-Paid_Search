@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, FastField, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Button, Input } from 'components/common';
+import { navigate } from 'gatsby-link';
 import { Error, Center, InputField } from './styles';
 
 const encode = data =>
@@ -29,9 +30,10 @@ export default () => (
         body: encode({ 'form-name': 'unlv-contact', ...values }),
       })
         .then(() => {
-          alert('Success');
+          // alert('Success');
           actions.setFieldValue('success', true);
           actions.resetForm();
+          navigate('continue');
         })
         .catch(() => {
           actions.setSubmitting(false);
