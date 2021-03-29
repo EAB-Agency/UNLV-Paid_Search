@@ -17,7 +17,7 @@ export default () => (
         </Container>
       </div>
     </header>
-    <main role="main" className="">
+    <main role="main" className="standard">
       <div className="page-wrap">
         <div className="content-head">
           <Container>

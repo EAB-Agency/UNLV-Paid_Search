@@ -88,7 +88,10 @@
 }
 
 //! ===========================
-//! landing-page
+//! ===========================
+//! ===========================
+//! ===========================
+//! Landing-pages
 
 .content-head {
   display: block;
@@ -223,14 +226,18 @@ section {
       display: block;
       position: relative;
       overflow: hidden;
-      @include fluidRem(padding, 1rem, 3rem);
+      @include fluidRem(padding, 0 1rem, 0 3rem);
       color: white;
       @include fluidRem(font-size, 1rem, 1.5rem);
 
       strong {
         color: lighten($c-red, 30%);
       }
-
+    }
+  }
+  .standard & {
+    @include fluidRem(padding, 1rem, 3rem);
+    p {
       @media (min-width: $mq-700) {
         padding-left: 4rem;
         &::before {
