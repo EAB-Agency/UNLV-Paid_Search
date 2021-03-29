@@ -317,6 +317,18 @@ section {
     color: $c-red;
   }
 
+  .cols {
+    align-items: center;
+    @media (max-width: $mq-800) {
+      .col-60 {
+        order: 1;
+      }
+      .col-40 {
+        order: 0;
+      }
+    }
+  }
+
   ul {
     background: lighten($c-gray, 58%);
     @include fluidRem(padding, 1rem, 2rem);
@@ -344,10 +356,17 @@ section {
   }
 
   .hospitality-img {
+    @media (max-width: $mq-800) {
+      // max-height: 20rem;
+      @include fluidRem(max-height, 14rem, 20rem);
+    }
     img {
       display: block;
       width: 100%;
       max-width: 100%;
+      @media (max-width: $mq-800) {
+        object-position: center 80%;
+      }
     }
   }
 }
@@ -380,7 +399,7 @@ section {
           color: lighten($c-red, 30%);
         }
 
-        @media (min-width: $mq-600) {
+        @media (min-width: $mq-800) {
           margin: 0 1em 0 0;
 
           &:last-child {
@@ -394,6 +413,10 @@ section {
       color: white;
       font-weight: bold;
       margin-bottom: 0.5rem;
+
+      @media (max-width: $mq-800) {
+        text-align: center;
+      }
     }
     p {
       color: white;
@@ -547,22 +570,48 @@ section {
     flex-direction: column;
     align-items: center;
     max-width: $mq-1000;
+    padding-bottom: 3em;
+
+    h2 {
+      @media (max-width: $mq-800) {
+        text-align: center;
+      }
+    }
 
     .cols {
       align-items: center;
 
       div[class*="col"] {
-        margin-right: 2em !important;
+        @media (min-width: $mq-800) {
+          margin-right: 2em;
+        }
 
         &:last-child {
           margin-right: 0;
         }
       }
     }
+
+    .quote {
+      strong,
+      span {
+        display: block;
+      }
+      span {
+        color: $c-red;
+      }
+      @media (max-width: $mq-800) {
+        text-align: center;
+      }
+    }
   }
 
   .video {
     flex-shrink: 0;
+    @media (max-width: $mq-800) {
+      width: 100%;
+      margin-right: 0;
+    }
   }
 
   .video-container {
@@ -601,5 +650,32 @@ section {
 
   .button {
     @include fluidRem(font-size, 1rem, 1.2rem);
+  }
+}
+
+.contact-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: $mq-600;
+  position: relative;
+  z-index: 100;
+  background: white;
+  padding: 0 1.5rem;
+  border-top: 0.5em solid $c-red;
+
+  .close-btn {
+    margin-right: -1em;
+  }
+
+  h1 {
+    @include fluidRem(font-size, 1.2rem, 2rem);
+    margin-bottom: 0.2em;
+    line-height: 1;
+
+    & + p {
+      @include fluidRem(font-size, 1rem, 1.5rem);
+      margin-bottom: 1em;
+    }
   }
 }

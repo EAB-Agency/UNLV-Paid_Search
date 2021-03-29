@@ -45,6 +45,9 @@ module.exports = {
         appElement: '#___gatsby',
         modalProps: {
           className: 'modalClass',
+          ariaHideApp: false,
+          // shouldCloseOnOverlayClick: false,
+          // shouldCloseOnEsc: false,
         },
       },
     },

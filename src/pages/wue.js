@@ -17,13 +17,12 @@ export default () => (
         </Container>
       </div>
     </header>
-    <main role="main" className="">
+    <main role="main" className="wue">
       <div className="page-wrap">
         <div className="content-head">
           <Container>
             <h1>
-              <strong>5 Reasons to earn your degree</strong> from the <span className="featured">#1 Ranked*</span>{' '}
-              Hospitality Management Program in the US
+              <strong>Earn Your Degree</strong> in <span className="featured">Hospitality Management</span>{' '}
             </h1>
             <p>
               At the <strong>University of Nevada, Las Vegas</strong> College of Hospitality
@@ -36,31 +35,20 @@ export default () => (
 
         <section className="landing-intro">
           <Container>
-            <ul className="reasons">
-              <li>
-                <strong>Top-ranked hospitality</strong> and leisure management program in the country and #2 in the
-                world.
-              </li>
-              <li>
-                Opportunity to study, work, and <strong>intern in the heart of the industry.</strong>
-              </li>
-              <li>
-                <strong>Low cost</strong> relative to comparable programs.
-              </li>
-              <li>
-                Flexible curriculum that allows you to specialize in{' '}
-                <strong>different segments of the industry.</strong>
-              </li>
-              <li>
-                The right mix of management skills and hands-on training to{' '}
-                <strong>make an immediate impact in your career.</strong>
-              </li>
-            </ul>
-            <p>
-              The <strong>Bachelor of Science degree in Hospitality Management</strong> offers a broad educational
-              approach to prepare you with both the management theories and operational competencies necessary to{' '}
-              <strong>start your career after graduation.</strong>
-            </p>
+            <div>
+              <p>
+                The <strong>Hospitality Management Major</strong> offers a broad educational approach to a career in the
+                hospitality industry. Its varied course of study will prepare you with both the management theories and
+                operational competencies necessary to{' '}
+                <strong>enter any segment of the industry upon graduation.</strong>
+              </p>
+              <p>
+                In addition to UNLV’s general education requirements, you can expect to{' '}
+                <strong>take classes specific to the industry</strong> including an introduction to hospitality, human
+                resources management, organizational behavior, facilities management, hospitality law and a course in
+                leadership, management, and ethics.
+              </p>
+            </div>
           </Container>
         </section>
         <section className="graduates">
@@ -136,18 +124,8 @@ export default () => (
                   We offer affordable tuition with financial aid options so you can afford a high-quality degree.
                 </strong>
               </p>
-              <p>Western Undergraduate Exchange (WUE) Scholarship</p>
-              <ul>
-                <li>Estimated $11,000 tuition savings for full-time enrollment</li>
-                <li>No scholarship application necessary</li>
-                <li>Renewable for 4 years and can be combined with other financial aid options</li>
-              </ul>
               <p className="states">
-                <strong>
-                  WUE Scholarship for residents of Alaska, Arizona, California, Colorado, Hawaii, Idaho, Montana, New
-                  Mexico, North Dakota, Oregon, South Dakota, Utah, Washington, Wyoming, Guam, and the Commonwealth of
-                  the Northern Marianas Islands
-                </strong>
+                <strong>Scholarships still available</strong>
               </p>
               <Link className="button" to="/contact" asModal>
                 Contact Us to Learn More

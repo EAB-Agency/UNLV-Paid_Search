@@ -12,10 +12,19 @@ export default () => (
       {({ modal, closeTo }) => (
         <>
           {modal ? (
-            <Link to={closeTo}>Close</Link>
+            <header className="contact-header">
+              <Link to={closeTo} className="close-btn">
+                Close
+              </Link>
+              <div className="head-content">
+                <h1>Learn More About Degree Options and Financial Aid </h1>
+                <p>Share your information and we’ll be in touch soon.</p>
+              </div>
+            </header>
           ) : (
-            <header>
-              <h1>Please provide your contact information</h1>
+            <header className="contact-header">
+              <h1>Learn More About Degree Options and Financial Aid </h1>
+              <p>Share your information and we’ll be in touch soon.</p>
             </header>
           )}
           <ContactForm />

@@ -126,3 +126,12 @@ select {
     margin: 0.5em 0;
   }
 }
+
+.contactForm {
+  display: block;
+  width: 100%;
+  max-width: $mq-600;
+  iframe {
+    width: 100%;
+  }
+}

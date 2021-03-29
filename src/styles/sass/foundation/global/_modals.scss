@@ -1,7 +1,86 @@
-/////////////////
-//MODALS
-/////////////////
+//! ==============
+//! MODALS
+//! ==============
 
-// .ReactModal__Overlay {
-//   background: rgba(black, 0.9) !important;
-// }
+.ReactModal__Overlay--after-open {
+  background: rgba(black, 0.9) !important;
+  z-index: 9999;
+}
+
+.modalClass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  &::before {
+    content: "";
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .close {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: $mq-600;
+    padding-bottom: 0.3em;
+  }
+
+  div {
+    position: relative;
+    z-index: 10;
+  }
+
+  iframe {
+    border: none;
+  }
+}
+
+.close-btn {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  text-indent: -999em;
+  margin: 0 0 0 auto;
+
+  &::before {
+    content: "+";
+    display: block;
+    font-family: $f-sans;
+    font-size: 2.5rem;
+    color: lighten(black, 50%);
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%) rotate(45deg);
+    line-height: 1;
+    text-indent: 0;
+  }
+
+  &:hover,
+  &:focus {
+    &::before {
+      color: $c-red;
+    }
+  }
+}
