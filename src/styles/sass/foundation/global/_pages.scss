@@ -226,7 +226,8 @@ section {
       display: block;
       position: relative;
       overflow: hidden;
-      @include fluidRem(padding, 0 1rem, 0 3rem);
+      // @include fluidRem(padding, 0 1rem, 0 3rem);
+      @include fluidRem(padding, 1rem, 3rem);
       color: white;
       @include fluidRem(font-size, 1rem, 1.5rem);
 
@@ -665,15 +666,13 @@ section {
   flex-direction: column;
   width: 100%;
   max-width: $mq-600;
-  position: relative;
-  z-index: 100;
+  // position: relative;
+  // z-index: 100;
   background: white;
-  padding: 0 1.5rem;
-  border-top: 0.5em solid $c-red;
 
-  .close-btn {
-    margin-right: -1em;
-  }
+  // .close-btn {
+  //   margin-right: -1em;
+  // }
 
   h1 {
     @include fluidRem(font-size, 1.2rem, 2rem);

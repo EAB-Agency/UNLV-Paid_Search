@@ -33,11 +33,13 @@ textarea,
 select {
   display: block;
   width: 100%;
-  color: #666;
-  border: 1px solid lighten(black, 85%);
+  color: $c-darkgrey;
+  border: 1px solid #cbd1d4;
   border-radius: 3px;
+  background: #eceff1;
   padding: 0.5em 0.3em;
   margin: 0.2em 0;
+  @include fluidRem(font-size, 1rem, 1.2rem);
   transition: all 0.2s;
 }
 
@@ -127,11 +129,11 @@ select {
   }
 }
 
-.contactForm {
-  display: block;
-  width: 100%;
-  max-width: $mq-600;
-  iframe {
-    width: 100%;
-  }
-}
+// .contactForm {
+//   display: block;
+//   width: 100%;
+//   max-width: $mq-600;
+//   iframe {
+//     width: 100%;
+//   }
+// }

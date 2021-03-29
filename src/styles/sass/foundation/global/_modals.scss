@@ -5,14 +5,22 @@
 .ReactModal__Overlay--after-open {
   background: rgba(black, 0.9) !important;
   z-index: 9999;
-}
-
-.modalClass {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+.modalClass {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: white;
+  @include fluidRem(padding, 3rem 1rem 1rem, 3rem 2rem 2rem);
+  border-top: 0.5em solid $c-red;
+  position: relative;
+  max-width: $mq-600;
 
   &::before {
     content: "";
@@ -36,29 +44,30 @@
     }
   }
 
-  .close {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    max-width: $mq-600;
-    padding-bottom: 0.3em;
-  }
-
   div {
     position: relative;
     z-index: 10;
   }
 
-  iframe {
-    border: none;
+  form {
+    display: block;
+    width: 100%;
+  }
+
+  button[class*="Button"] {
+    padding: 0.85em 2em 0.85em 1.1em;
+    @include buttons($c-cta);
+    border-radius: 0;
   }
 }
 
 .close-btn {
   display: block;
-  width: 2rem;
-  height: 2rem;
-  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  top: 0em;
+  right: 0em;
   text-indent: -999em;
   margin: 0 0 0 auto;
 
@@ -66,7 +75,7 @@
     content: "+";
     display: block;
     font-family: $f-sans;
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: lighten(black, 50%);
     font-weight: bold;
     position: absolute;
