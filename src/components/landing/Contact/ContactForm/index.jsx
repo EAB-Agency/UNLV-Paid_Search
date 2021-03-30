@@ -45,30 +45,36 @@ export default () => (
   >
     {({ values, touched, errors, isSubmitting }) => (
       <Form name="unlv-contact" data-netlify>
-        <InputField>
-          <Input
-            as={FastField}
-            type="text"
-            name="name"
-            component="input"
-            aria-label="name"
-            placeholder="Full name*"
-            error={touched.name && errors.name}
-          />
-          <ErrorMessage component={Error} name="name" />
+        <InputField className="question">
+          <label htmlFor="name">Name</label>
+          <div className="input">
+            <Input
+              as={FastField}
+              type="text"
+              name="name"
+              component="input"
+              aria-label="name"
+              placeholder="Full name*"
+              error={touched.name && errors.name}
+            />
+            <ErrorMessage component={Error} name="name" />
+          </div>
         </InputField>
-        <InputField>
-          <Input
-            id="email"
-            aria-label="email"
-            component="input"
-            as={FastField}
-            type="email"
-            name="email"
-            placeholder="Email*"
-            error={touched.email && errors.email}
-          />
-          <ErrorMessage component={Error} name="email" />
+        <InputField className="question">
+          <label htmlFor="email">Email</label>
+          <div className="input">
+            <Input
+              id="email"
+              aria-label="email"
+              component="input"
+              as={FastField}
+              type="email"
+              name="email"
+              placeholder="Email*"
+              error={touched.email && errors.email}
+            />
+            <ErrorMessage component={Error} name="email" />
+          </div>
         </InputField>
 
         {/* {values.name && values.email && values.message && (

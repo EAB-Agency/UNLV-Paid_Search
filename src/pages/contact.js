@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout, SEO } from 'components/common';
 import { Link } from 'gatsby';
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing';
-import ContactForm from 'components/landing/Contact/ContactForm';
+import { Contact } from 'components/landing';
 
 export default () => (
   <Layout>
@@ -12,22 +12,15 @@ export default () => (
       {({ modal, closeTo }) => (
         <>
           {modal ? (
-            <header className="contact-header">
+            <div className="contact-header">
               <Link to={closeTo} className="close-btn">
                 Close
               </Link>
-              <div className="head-content">
-                <h1>Learn More About Degree Options and Financial Aid </h1>
-                <p>Share your information and we’ll be in touch soon.</p>
-              </div>
-            </header>
+              <Contact />
+            </div>
           ) : (
-            <header className="contact-header">
-              <h1>Learn More About Degree Options and Financial Aid </h1>
-              <p>Share your information and we’ll be in touch soon.</p>
-            </header>
+            (window.location.href = '/')
           )}
-          <ContactForm />
         </>
       )}
     </ModalRoutingContext.Consumer>
