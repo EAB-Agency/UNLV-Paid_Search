@@ -283,3 +283,15 @@ input[error] {
   padding: 0.2em 0.5em;
   border-top: 1px solid lighten(black, 95%);
 }
+
+#thanks {
+  display: none;
+  h4 {
+    @include fluidRem(font-size, 1rem, 2rem);
+    font-weight: normal;
+    border-left: 1px solid $c-red;
+    padding-left: 0.3em;
+    line-height: 1.2;
+    // color: $c-red;
+  }
+}
