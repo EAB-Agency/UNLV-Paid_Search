@@ -11,8 +11,14 @@ export default () => (
       {({ modal, closeTo }) => (
         <>
           {modal ? (
-            <div className="help-privacy">
-              <Link to={closeTo} className="close-btn">
+            <div className="help">
+              <Link
+                to={closeTo}
+                className="close-btn"
+                state={{
+                  noScroll: true,
+                }}
+              >
                 Close
               </Link>
               <div className="head-content">
@@ -24,13 +30,7 @@ export default () => (
               </div>
             </div>
           ) : (
-            <div className="help-privacy">
-              <h2>Help</h2>
-              <p>
-                If you require assistance in using this site, please contact the Help Center at{' '}
-                <a href="mailto:help@unlv.edu">help@unlv.edu.</a>
-              </p>
-            </div>
+            (window.location.href = '/')
           )}
         </>
       )}

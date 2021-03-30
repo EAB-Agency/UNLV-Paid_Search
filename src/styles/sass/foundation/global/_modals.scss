@@ -95,3 +95,16 @@
     }
   }
 }
+
+.privacy {
+  width: 100%;
+  height: 80vh;
+  overflow-y: scroll;
+  @media (max-width: $mq-700) {
+    padding-right: 1em;
+  }
+}
+
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}
