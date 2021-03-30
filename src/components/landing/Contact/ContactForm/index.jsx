@@ -75,7 +75,8 @@ export default () => (
         firstName: '',
         lastName: '',
         email: '',
-        date: new Date(),
+        phoneNumber: '',
+        DOB: '',
         success: false,
       }}
       validationSchema={Yup.object().shape({
@@ -131,6 +132,16 @@ export default () => (
             name="email"
             placeholder="Email*"
             error={touched.email && errors.email}
+          />
+          <TextInput
+            label="Phone Number"
+            id="phoneNumber"
+            aria-label="Phone Number"
+            component="input"
+            type="number"
+            name="phoneNumber"
+            placeholder="Phone Number"
+            error={touched.phoneNumber && errors.phoneNumber}
           />
           <MultiSelect label="High School Graduation Year" name="gradYear">
             <option value="">Select a graduation year</option>
