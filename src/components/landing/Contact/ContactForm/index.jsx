@@ -106,15 +106,6 @@ export default () => (
     >
       {({ values, touched, errors, isSubmitting }) => (
         <Form name="unlv-contact" data-netlify>
-          <Field
-            component={DatePicker}
-            label="Date of Birth"
-            name="dob"
-            views={['year', 'month']}
-            minDate={new Date('2002-01-01')}
-            maxDate={new Date('2008-12-31')}
-          />
-
           <TextInput
             label="First Name"
             name="firstName"
@@ -148,7 +139,17 @@ export default () => (
             <option value="2023">2023</option>
             <option value="2024">2024</option>
           </MultiSelect>
-          {/* <Field component={DatePicker} label="label" name="name" />; */}
+          <Field
+            component={DatePicker}
+            label="Date of Birth"
+            name="DOB"
+            views={['year', 'month', 'date']}
+            openTo="year"
+            format="MM/dd/yyyy"
+            minDate={new Date('2002-01-01')}
+            maxDate={new Date('2008-12-31')}
+          />
+
           {values.success && (
             <InputField>
               <Center>
