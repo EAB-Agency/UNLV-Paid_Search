@@ -76,7 +76,9 @@ export default () => (
         lastName: '',
         email: '',
         phoneNumber: '',
-        DOB: '',
+        dobMonth: '',
+        dobyear: '',
+        dobDay: '',
         success: false,
       }}
       validationSchema={Yup.object().shape({
@@ -138,7 +140,7 @@ export default () => (
             id="phoneNumber"
             aria-label="Phone Number"
             component="input"
-            type="number"
+            type="numeric"
             name="phoneNumber"
             placeholder="Phone Number"
             error={touched.phoneNumber && errors.phoneNumber}
@@ -150,16 +152,38 @@ export default () => (
             <option value="2023">2023</option>
             <option value="2024">2024</option>
           </MultiSelect>
-          <Field
-            component={DatePicker}
-            label="Date of Birth"
-            name="DOB"
-            views={['year', 'month', 'date']}
-            openTo="year"
-            format="MM/dd/yyyy"
-            minDate={new Date('2002-01-01')}
-            maxDate={new Date('2008-12-31')}
+          <TextInput
+            label="Date of Birth - Day"
+            id="dobDay"
+            aria-label="Date of Birth - Day"
+            component="input"
+            type="numeric"
+            name="dobDay"
           />
+          <MultiSelect label="Date of Birth - Month" name="dobMonth">
+            <option value="">---</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+          </MultiSelect>
+          <MultiSelect label="Date of Birth - Year" name="dobYear">
+            <option value="">---</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+          </MultiSelect>
 
           {values.success && (
             <InputField>
