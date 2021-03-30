@@ -78,13 +78,8 @@ export default () => (
       success: false,
     }}
     validationSchema={Yup.object().shape({
-<<<<<<< HEAD
-      firstName: Yup.string().required('First name field is required'),
-      lastName: Yup.string().required('Last name field is required'),
-=======
       firstName: Yup.string().required('Your first name is required'),
       lastName: Yup.string().required('Your last name is required'),
->>>>>>> 7f9cc21298aa875c894ed3425bb724f5ba89f123
       email: Yup.string()
         .email('Invalid email')
         .required('Your email address is required'),
