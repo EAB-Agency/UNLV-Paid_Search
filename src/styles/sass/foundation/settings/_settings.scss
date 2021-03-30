@@ -42,7 +42,10 @@ $c-twitter: #0084b4;
 $c-linkedin: #007bb6;
 
 // Base theme colours
-$c-selection: #390909; // Change it to a contrast color per branding guidelines.
+$c-selection: lighten(
+  $c-red,
+  45%
+); // Change it to a contrast color per branding guidelines.
 $c-basecopyblack: darken(
   $c-darkgrey,
   10%

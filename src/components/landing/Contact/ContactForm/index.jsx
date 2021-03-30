@@ -78,10 +78,12 @@ export default () => (
       success: false,
     }}
     validationSchema={Yup.object().shape({
-      // name: Yup.string().required('Full name field is required'),
+      firstName: Yup.string().required('Your first name is required'),
+      lastName: Yup.string().required('Your last name is required'),
       email: Yup.string()
         .email('Invalid email')
-        .required('Email field is required'),
+        .required('Your email address is required'),
+      gradYear: Yup.string().required('Your graduation year is required'),
     })}
     onSubmit={(values, actions) => {
       fetch('/', {
@@ -93,7 +95,9 @@ export default () => (
           // alert('Success');
           actions.setFieldValue('success', true);
           actions.resetForm();
-          navigate('/continue');
+          // navigate('/continue');
+          const TheForm = document.getElementsByClassName('form')[0];
+          TheForm.style.display = 'none';
         })
         .catch(() => {
           actions.setSubmitting(false);
@@ -110,7 +114,7 @@ export default () => (
           id="firstName"
           name="firstName"
           type="text"
-          placeholder=""
+          placeholder="First Name"
           aria-label="firstName"
           error={touched.firstName && errors.firstName}
         />
@@ -119,7 +123,7 @@ export default () => (
           name="lastName"
           id="lastName"
           type="text"
-          placeholder=""
+          placeholder="Last Name"
           aria-label="lastName"
           error={touched.lastName && errors.lastName}
         />
@@ -130,9 +134,21 @@ export default () => (
           component="input"
           type="email"
           name="email"
-          placeholder="Email*"
+          placeholder="Email Address"
           error={touched.email && errors.email}
         />
+        <div className="gradyear-question">
+          <label htmlFor="gradYear">High School Graduation Year</label>
+          <div className="grad-select">
+            <MultiSelect id="gradYear" name="gradYear">
+              <option value="">Select a graduation year</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+            </MultiSelect>
+          </div>
+        </div>
         <TextInput
           label="Phone Number"
           id="phoneNumber"
@@ -143,16 +159,6 @@ export default () => (
           placeholder="Phone Number"
           error={touched.phoneNumber && errors.phoneNumber}
         />
-        <div className="select-question">
-          <MultiSelect label="High School Graduation Year" id="gradYear" name="gradYear">
-            <option value="">Select a graduation year</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-          </MultiSelect>
-        </div>
-
         {/* <TextInput
           label="Date of Birth - Day"
           id="dobDay"
@@ -161,64 +167,69 @@ export default () => (
           type="numeric"
           name="dobDay"
         /> */}
-        {/* <MultiSelect label="Date of Birth - Day" name="dobDay">
-          <option value="">---</option>
-          <option value="01">01</option>
-          <option value="02">02</option>
-          <option value="03">03</option>
-          <option value="04">04</option>
-          <option value="05">05</option>
-          <option value="06">06</option>
-          <option value="07">07</option>
-          <option value="08">08</option>
-          <option value="09">09</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-          <option value="13">13</option>
-          <option value="14">14</option>
-          <option value="15">15</option>
-          <option value="16">16</option>
-          <option value="17">17</option>
-          <option value="18">18</option>
-          <option value="19">19</option>
-          <option value="20">20</option>
-          <option value="21">21</option>
-          <option value="22">22</option>
-          <option value="23">23</option>
-          <option value="24">24</option>
-          <option value="25">25</option>
-          <option value="26">26</option>
-          <option value="27">27</option>
-          <option value="28">28</option>
-          <option value="29">29</option>
-          <option value="30">30</option>
-          <option value="31">31</option>
-        </MultiSelect>
-        <MultiSelect label="Date of Birth - Month" name="dobMonth">
-          <option value="">---</option>
-          <option value="January">January</option>
-          <option value="February">February</option>
-          <option value="March">March</option>
-          <option value="April">April</option>
-          <option value="May">May</option>
-          <option value="June">June</option>
-          <option value="July">July</option>
-          <option value="August">August</option>
-          <option value="September">September</option>
-          <option value="October">October</option>
-          <option value="November">November</option>
-          <option value="December">December</option>
-        </MultiSelect>
-        <MultiSelect label="Date of Birth - Year" name="dobYear">
-          <option value="">---</option>
-          <option value="2002">2002</option>
-          <option value="2003">2003</option>
-          <option value="2004">2004</option>
-          <option value="2005">2005</option>
-          <option value="2006">2006</option>
-          <option value="2007">2007</option>
-        </MultiSelect> */}
+        <div className="dob-question">
+          <label>Date of Birth</label>
+          <div className="dob-selects">
+            <MultiSelect id="dobDay" name="dobDay">
+              <option value="">---</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </MultiSelect>
+            <MultiSelect id="dobMonth" name="dobMonth">
+              <option value="">---</option>
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </MultiSelect>
+            <MultiSelect id="dobYear" name="dobYear">
+              <option value="">---</option>
+              <option value="2002">2002</option>
+              <option value="2003">2003</option>
+              <option value="2004">2004</option>
+              <option value="2005">2005</option>
+              <option value="2006">2006</option>
+              <option value="2007">2007</option>
+            </MultiSelect>
+          </div>
+        </div>
 
         {values.success && (
           <InputField>
