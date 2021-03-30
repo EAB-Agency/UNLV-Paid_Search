@@ -69,6 +69,8 @@ input[type="search"]:focus,
 input[type="search"]:hover,
 input[type="number"]:focus,
 input[type="number"]:hover,
+input[type="numeric"]:hover,
+input[type="numeric"]:focus,
 input[type="tel"]:focus,
 input[type="range"]:focus,
 input[type="date"]:focus,
@@ -83,10 +85,10 @@ textarea:focus,
 textarea:hover,
 select:focus,
 select:hover {
-  outline: none;
-  background: lighten($c-gray, 72%);
-  color: $c-darkgrey;
-  border-color: $c-gray;
+  outline: none !important;
+  background: lighten($c-gray, 72%) !important;
+  color: $c-darkgrey !important;
+  border-color: $c-gray !important;
 }
 
 select {
@@ -143,18 +145,17 @@ textarea {
     input,
     select {
       @media (min-width: $mq-1000) {
-        max-width: 18em;
+        max-width: 18rem;
         margin-left: 1em;
       }
     }
   }
 
-  .select-question {
+  .gradyear-question {
     display: flex;
     flex-direction: column;
     width: 100%;
     font-size: 1rem;
-    // margin-bottom: 0.2em;
     padding: 0.2em 0.5em;
     border-top: 1px solid lighten(black, 95%);
     @media (min-width: $mq-1000) {
@@ -168,11 +169,85 @@ textarea {
       width: auto;
       padding: 0;
     }
-    select {
+    .grad-select {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      flex-shrink: 0;
+
+      select {
+        margin-right: 0.5em;
+
+        &[name="dobMonth"] {
+          width: 8em;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
       @media (min-width: $mq-1000) {
-        max-width: 18em;
+        max-width: 18rem;
         margin-left: 1em;
       }
+      label {
+        display: none;
+        visibility: hidden;
+      }
+    }
+  }
+  .dob-question {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.2em 0.5em;
+    border-top: 1px solid lighten(black, 95%);
+    @media (min-width: $mq-1000) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    label {
+      border: none;
+    }
+    .dob-selects {
+      display: flex;
+      width: 100%;
+      flex-shrink: 0;
+
+      select {
+        margin-right: 0.5em;
+
+        &[name="dobMonth"] {
+          width: 8em;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+      @media (min-width: $mq-1000) {
+        max-width: 18rem;
+        margin-left: 1em;
+      }
+      label {
+        display: none;
+        visibility: hidden;
+      }
+    }
+  }
+
+  span[class*="Error"],
+  div[class*="Error"] {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding: 0 0.5em 0.5em;
+    color: $c-red;
+    font-size: 1rem;
+    &::before {
+      display: none;
     }
   }
 }
@@ -207,4 +282,16 @@ input[error] {
   // margin-top: 2em;
   padding: 0.2em 0.5em;
   border-top: 1px solid lighten(black, 95%);
+}
+
+#thanks {
+  display: none;
+  h4 {
+    @include fluidRem(font-size, 1rem, 2rem);
+    font-weight: normal;
+    border-left: 1px solid $c-red;
+    padding-left: 0.3em;
+    line-height: 1.2;
+    // color: $c-red;
+  }
 }
