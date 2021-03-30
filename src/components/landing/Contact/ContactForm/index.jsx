@@ -144,6 +144,7 @@ export default () => (
             <label htmlFor="gradYear">High School Graduation Year</label>
             <div className="grad-select">
               <MultiSelect
+                label="Grad Year"
                 as="select"
                 id="gradYear"
                 value={values.gradYear}
@@ -171,7 +172,7 @@ export default () => (
           <div className="dob-question">
             <label>Date of Birth</label>
             <div className="dob-selects">
-              <MultiSelect id="dobDay" name="dobDay" as="select" value={values.dobDay}>
+              <MultiSelect label="Date of Birth - Day" id="dobDay" name="dobDay" as="select" value={values.dobDay}>
                 <option value="">---</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -205,7 +206,7 @@ export default () => (
                 <option value="30">30</option>
                 <option value="31">31</option>
               </MultiSelect>
-              <MultiSelect id="dobMonth" name="dobMonth" value={values.dobMonth}>
+              <MultiSelect label="Date of Birth - Month" id="dobMonth" name="dobMonth" value={values.dobMonth}>
                 <option value="">---</option>
                 <option value="January">January</option>
                 <option value="February">February</option>
@@ -220,7 +221,7 @@ export default () => (
                 <option value="November">November</option>
                 <option value="December">December</option>
               </MultiSelect>
-              <MultiSelect id="dobYear" name="dobYear" value={values.dobYear}>
+              <MultiSelect label="Date of Birth - Year" id="dobYear" name="dobYear" value={values.dobYear}>
                 <option value="">---</option>
                 <option value="2002">2002</option>
                 <option value="2003">2003</option>
