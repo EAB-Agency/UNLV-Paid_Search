@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
 import styled from 'styled-components';
@@ -5,7 +6,6 @@ import { Formik, Form, ErrorMessage, useField } from 'formik';
 import * as Yup from 'yup';
 
 import { Button, StyledInput, StyledSelect } from 'components/common';
-import { navigate } from 'gatsby-link';
 import { Error, Center, InputField } from './styles';
 
 const TextInput = ({ label, ...props }) => {
@@ -55,7 +55,8 @@ const MultiSelect = ({ label, ...props }) => {
     <>
       <StyledLabel htmlFor={id || name}>{label}</StyledLabel>
       <StyledSelect {...field} {...props} />
-      {meta.touched && meta.error ? <StyledErrorMessage>{meta.error}</StyledErrorMessage> : null}
+      {/* {meta.touched && meta.error ? <StyledErrorMessage>{meta.error}</StyledErrorMessage> : null} */}
+      <ErrorMessage component={Error} name={name} />
     </>
   );
 };
@@ -83,7 +84,6 @@ export default () => (
       email: Yup.string()
         .email('Invalid email')
         .required('Your email address is required'),
-      gradYear: Yup.string().required('Your graduation year is required'),
     })}
     onSubmit={(values, actions) => {
       fetch('/', {
@@ -143,7 +143,13 @@ export default () => (
           <div className="gradyear-question">
             <label htmlFor="gradYear">High School Graduation Year</label>
             <div className="grad-select">
-              <MultiSelect id="gradYear" name="gradYear">
+              <MultiSelect
+                as="select"
+                id="gradYear"
+                value={values.gradYear}
+                name="gradYear"
+                error={touched.gradYear && errors.gradYear}
+              >
                 <option value="">Select a graduation year</option>
                 <option value="2021">2021</option>
                 <option value="2022">2022</option>
@@ -173,7 +179,7 @@ export default () => (
           <div className="dob-question">
             <label>Date of Birth</label>
             <div className="dob-selects">
-              <MultiSelect id="dobDay" name="dobDay">
+              <MultiSelect id="dobDay" name="dobDay" as="select">
                 <option value="">---</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
