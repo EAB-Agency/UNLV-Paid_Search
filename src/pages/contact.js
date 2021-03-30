@@ -13,7 +13,13 @@ export default () => (
         <>
           {modal ? (
             <div className="contact-header">
-              <Link to={closeTo} className="close-btn">
+              <Link
+                to={closeTo}
+                className="close-btn"
+                state={{
+                  noScroll: true,
+                }}
+              >
                 Close
               </Link>
               <Contact />

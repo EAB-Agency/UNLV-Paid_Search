@@ -11,8 +11,14 @@ export default () => (
       {({ modal, closeTo }) => (
         <>
           {modal ? (
-            <div className="help-privacy">
-              <Link to={closeTo} className="close-btn">
+            <div className="privacy">
+              <Link
+                to={closeTo}
+                className="close-btn"
+                state={{
+                  noScroll: true,
+                }}
+              >
                 Close
               </Link>
               <div className="head-content">
