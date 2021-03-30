@@ -104,21 +104,23 @@ export default () => (
     }}
   >
     {({ values, touched, errors, isSubmitting }) => (
-      <Form name="unlv-contact" data-netlify>
+      <Form name="unlv-contact" className="form" data-netlify>
         <TextInput
           label="First Name"
+          id="firstName"
           name="firstName"
           type="text"
           placeholder=""
-          aria-label="name"
+          aria-label="firstName"
           error={touched.firstName && errors.firstName}
         />
         <TextInput
           label="Last Name"
           name="lastName"
+          id="lastName"
           type="text"
           placeholder=""
-          aria-label="name"
+          aria-label="lastName"
           error={touched.lastName && errors.lastName}
         />
         <TextInput
@@ -141,13 +143,16 @@ export default () => (
           placeholder="Phone Number"
           error={touched.phoneNumber && errors.phoneNumber}
         />
-        <MultiSelect label="High School Graduation Year" name="gradYear">
-          <option value="">Select a graduation year</option>
-          <option value="2021">2021</option>
-          <option value="2022">2022</option>
-          <option value="2023">2023</option>
-          <option value="2024">2024</option>
-        </MultiSelect>
+        <div className="select-question">
+          <MultiSelect label="High School Graduation Year" id="gradYear" name="gradYear">
+            <option value="">Select a graduation year</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+          </MultiSelect>
+        </div>
+
         {/* <TextInput
           label="Date of Birth - Day"
           id="dobDay"
@@ -156,7 +161,7 @@ export default () => (
           type="numeric"
           name="dobDay"
         /> */}
-        <MultiSelect label="Date of Birth - Day" name="dobDay">
+        {/* <MultiSelect label="Date of Birth - Day" name="dobDay">
           <option value="">---</option>
           <option value="01">01</option>
           <option value="02">02</option>
@@ -213,7 +218,7 @@ export default () => (
           <option value="2005">2005</option>
           <option value="2006">2006</option>
           <option value="2007">2007</option>
-        </MultiSelect>
+        </MultiSelect> */}
 
         {values.success && (
           <InputField>
@@ -222,7 +227,7 @@ export default () => (
             </Center>
           </InputField>
         )}
-        <Center>
+        <Center className="type-button">
           <Button secondary type="submit" disabled={isSubmitting}>
             Submit
           </Button>
