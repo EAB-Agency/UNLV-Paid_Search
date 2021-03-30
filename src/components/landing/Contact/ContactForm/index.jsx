@@ -78,7 +78,8 @@ export default () => (
       success: false,
     }}
     validationSchema={Yup.object().shape({
-      // name: Yup.string().required('Full name field is required'),
+      firstName: Yup.string().required('First name field is required'),
+      lastName: Yup.string().required('Last name field is required'),
       email: Yup.string()
         .email('Invalid email')
         .required('Email field is required'),
@@ -106,20 +107,20 @@ export default () => (
     {({ values, touched, errors, isSubmitting }) => (
       <Form name="unlv-contact" className="form" data-netlify>
         <TextInput
-          label="First Name"
+          label="First Name *"
           id="firstName"
           name="firstName"
           type="text"
-          placeholder=""
+          placeholder="First Name*"
           aria-label="firstName"
           error={touched.firstName && errors.firstName}
         />
         <TextInput
-          label="Last Name"
+          label="Last Name *"
           name="lastName"
           id="lastName"
           type="text"
-          placeholder=""
+          placeholder="Last Name*"
           aria-label="lastName"
           error={touched.lastName && errors.lastName}
         />
