@@ -168,18 +168,10 @@ export default () => (
             placeholder="Phone Number"
             error={touched.phoneNumber && errors.phoneNumber}
           />
-          {/* <TextInput
-          label="Date of Birth - Day"
-          id="dobDay"
-          aria-label="Date of Birth - Day"
-          component="input"
-          type="numeric"
-          name="dobDay"
-        /> */}
           <div className="dob-question">
             <label>Date of Birth</label>
             <div className="dob-selects">
-              <MultiSelect id="dobDay" name="dobDay" as="select">
+              <MultiSelect id="dobDay" name="dobDay" as="select" value={values.dobDay}>
                 <option value="">---</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -213,7 +205,7 @@ export default () => (
                 <option value="30">30</option>
                 <option value="31">31</option>
               </MultiSelect>
-              <MultiSelect id="dobMonth" name="dobMonth">
+              <MultiSelect id="dobMonth" name="dobMonth" value={values.dobMonth}>
                 <option value="">---</option>
                 <option value="January">January</option>
                 <option value="February">February</option>
@@ -228,7 +220,7 @@ export default () => (
                 <option value="November">November</option>
                 <option value="December">December</option>
               </MultiSelect>
-              <MultiSelect id="dobYear" name="dobYear">
+              <MultiSelect id="dobYear" name="dobYear" value={values.dobYear}>
                 <option value="">---</option>
                 <option value="2002">2002</option>
                 <option value="2003">2003</option>
