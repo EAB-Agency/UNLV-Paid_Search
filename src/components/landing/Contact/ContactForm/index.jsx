@@ -1,9 +1,63 @@
+/* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
-import { Formik, Form, FastField, ErrorMessage } from 'formik';
+import styled from 'styled-components';
+import { Formik, Form, FastField, ErrorMessage, useField } from 'formik';
 import * as Yup from 'yup';
-import { Button, Input } from 'components/common';
+import { Button, StyledInput, StyledSelect } from 'components/common';
 import { navigate } from 'gatsby-link';
 import { Error, Center, InputField } from './styles';
+
+const TextInput = ({ label, ...props }) => {
+  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+  // which we can spread on <input> and alse replace ErrorMessage entirely.
+  const [field, meta] = useField(props);
+  const { id, name } = props;
+  return (
+    <>
+      <label htmlFor={id || name}>
+        {label}
+        <StyledInput className="text-input" {...field} {...props} />
+      </label>
+      <ErrorMessage component={Error} name={name} />
+
+      {/* {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null} */}
+    </>
+  );
+};
+
+// Styled components ....
+
+const StyledErrorMessage = styled.div`
+  font-size: 12px;
+  color: var(--red-600);
+  width: 400px;
+  margin-top: 0.25rem;
+  &:before {
+    content: '❌ ';
+    font-size: 10px;
+  }
+  @media (prefers-color-scheme: dark) {
+    color: var(--red-300);
+  }
+`;
+
+const StyledLabel = styled.label`
+  margin-top: 1rem;
+`;
+
+const MultiSelect = ({ label, ...props }) => {
+  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+  // which we can spread on <input> and alse replace ErrorMessage entirely.
+  const [field, meta] = useField(props);
+  const { id, name } = props;
+  return (
+    <>
+      <StyledLabel htmlFor={id || name}>{label}</StyledLabel>
+      <StyledSelect {...field} {...props} />
+      {meta.touched && meta.error ? <StyledErrorMessage>{meta.error}</StyledErrorMessage> : null}
+    </>
+  );
+};
 
 const encode = data =>
   Object.keys(data)
@@ -13,12 +67,13 @@ const encode = data =>
 export default () => (
   <Formik
     initialValues={{
-      name: '',
+      firstName: '',
+      lastName: '',
       email: '',
       success: false,
     }}
     validationSchema={Yup.object().shape({
-      name: Yup.string().required('Full name field is required'),
+      // name: Yup.string().required('Full name field is required'),
       email: Yup.string()
         .email('Invalid email')
         .required('Email field is required'),
@@ -33,7 +88,7 @@ export default () => (
           // alert('Success');
           actions.setFieldValue('success', true);
           actions.resetForm();
-          navigate('continue');
+          navigate('/continue');
         })
         .catch(() => {
           actions.setSubmitting(false);
@@ -45,43 +100,41 @@ export default () => (
   >
     {({ values, touched, errors, isSubmitting }) => (
       <Form name="unlv-contact" data-netlify>
-        <InputField>
-          <Input
-            as={FastField}
-            type="text"
-            name="name"
-            component="input"
-            aria-label="name"
-            placeholder="Full name*"
-            error={touched.name && errors.name}
-          />
-          <ErrorMessage component={Error} name="name" />
-        </InputField>
-        <InputField>
-          <Input
-            id="email"
-            aria-label="email"
-            component="input"
-            as={FastField}
-            type="email"
-            name="email"
-            placeholder="Email*"
-            error={touched.email && errors.email}
-          />
-          <ErrorMessage component={Error} name="email" />
-        </InputField>
+        <TextInput
+          label="First Name"
+          name="firstName"
+          type="text"
+          placeholder=""
+          aria-label="name"
+          error={touched.firstName && errors.firstName}
+        />
+        <TextInput
+          label="Last Name"
+          name="lastName"
+          type="text"
+          placeholder=""
+          aria-label="name"
+          error={touched.lastName && errors.lastName}
+        />
 
-        {/* {values.name && values.email && values.message && (
-          <InputField>
-            <FastField
-              component={Recaptcha}
-              // sitekey={process.env.GATSBY_PORTFOLIO_RECAPTCHA_KEY}
-              name="recaptcha"
-              onChange={value => setFieldValue('recaptcha', value)}
-            />
-            <ErrorMessage component={Error} name="recaptcha" />
-          </InputField>
-        )} */}
+        <TextInput
+          label="Email Address"
+          id="email"
+          aria-label="email"
+          component="input"
+          as={FastField}
+          type="email"
+          name="email"
+          placeholder="Email*"
+          error={touched.email && errors.email}
+        />
+        <MultiSelect label="High School Graduation Year" name="gradYear">
+          <option value="">Select a graduation year</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+        </MultiSelect>
         {values.success && (
           <InputField>
             <Center>
