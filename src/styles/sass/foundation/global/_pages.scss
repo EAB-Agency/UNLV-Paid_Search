@@ -594,11 +594,14 @@ section {
   background: $c-darkgrey url(../../assets/las_vegas_strip-D71216_002-lq.jpg)
     no-repeat center;
   background-size: cover;
+
   @include fluidRem(padding, 10rem 1rem, 8rem 1rem);
 
   @media (min-width: $mq-800) {
-    background: $c-darkgrey url(../../assets/las_vegas_strip-D71216_002.jpg)
+    background: $c-darkgrey url(../../assets/las_vegas_strip-D71216_002-lq.jpg)
       no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
   }
 
   .content {

@@ -178,6 +178,21 @@ export default () => (
             <div className="dob-question">
               <label>Date of Birth</label>
               <div className="dob-selects">
+                <MultiSelect label="Date of Birth - Month" id="dobMonth" name="dobMonth" value={values.dobMonth}>
+                  <option value="">---</option>
+                  <option value="01">January</option>
+                  <option value="02">February</option>
+                  <option value="03">March</option>
+                  <option value="04">April</option>
+                  <option value="05">May</option>
+                  <option value="06">June</option>
+                  <option value="07">July</option>
+                  <option value="08">August</option>
+                  <option value="09">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </MultiSelect>
                 <MultiSelect label="Date of Birth - Day" id="dobDay" name="dobDay" as="select" value={values.dobDay}>
                   <option value="">---</option>
                   <option value="01">01</option>
@@ -211,21 +226,6 @@ export default () => (
                   <option value="29">29</option>
                   <option value="30">30</option>
                   <option value="31">31</option>
-                </MultiSelect>
-                <MultiSelect label="Date of Birth - Month" id="dobMonth" name="dobMonth" value={values.dobMonth}>
-                  <option value="">---</option>
-                  <option value="01">January</option>
-                  <option value="02">February</option>
-                  <option value="03">March</option>
-                  <option value="04">April</option>
-                  <option value="05">May</option>
-                  <option value="06">June</option>
-                  <option value="07">July</option>
-                  <option value="08">August</option>
-                  <option value="09">September</option>
-                  <option value="10">October</option>
-                  <option value="11">November</option>
-                  <option value="12">December</option>
                 </MultiSelect>
                 <MultiSelect label="Date of Birth - Year" id="dobYear" name="dobYear" value={values.dobYear}>
                   <option value="">---</option>
