@@ -24,6 +24,7 @@
     "gatsby-plugin-canonical-urls": "^2.0.8",
     "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-google-analytics": "^2.0.8",
+    "gatsby-plugin-google-tagmanager": "^3.2.0",
     "gatsby-plugin-image": "^1.2.0",
     "gatsby-plugin-modal-routing": "^1.2.0",
     "gatsby-plugin-nprogress": "^2.0.7",
