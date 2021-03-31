@@ -3,12 +3,12 @@ import { Layout, SEO } from 'components/common';
 import { Link } from 'gatsby';
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing';
 import { Contact } from 'components/landing';
-import { Redirect } from '@reach/router';
 
 const RedirectLocation = () => (window.location.href = '/');
 
-export default () => {
+export default ({ location }) => {
   const isBrowser = typeof window !== 'undefined';
+  const { campaign } = location.state || 'default';
   return (
     <Layout>
       <SEO />
@@ -27,7 +27,7 @@ export default () => {
                 >
                   Close
                 </Link>
-                <Contact />
+                <Contact campaign={campaign} />
               </div>
             ) : (
               isBrowser && <RedirectLocation />
