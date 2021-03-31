@@ -87,16 +87,16 @@ export default () => (
         .required('Your email address is required'),
     })}
     onSubmit={(values, actions) => {
-      fetch('/', {
+      fetch('/?no-cache=1', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'paid-search-landing-unlv', ...values }),
+        body: encode({ 'form-name': 'unlv-contact', ...values }),
       })
         .then(() => {
           // alert('Success');
           actions.setFieldValue('success', true);
           // alert(JSON.stringify(values, null, 2));
-          // alert(encode({ 'form-name': 'paid-search-landing-unlv', ...values }));
+          // alert(encode({ 'form-name': 'unlv-contact', ...values }));
           // actions.resetForm();
           // navigate('/continue');
         })
@@ -109,8 +109,8 @@ export default () => (
     }}
   >
     {({ values, touched, errors, isSubmitting }) => (
-      <Form name="paid-search-landing-unlv" className="form" data-netlify>
-        <input type="hidden" name="form-name" value="paid-search-landing-unlv" />
+      <Form name="unlv-contact" className="form" data-netlify>
+        <input type="hidden" name="form-name" value="unlv-contact" />
         {!values.success && (
           <div className="form-fields">
             <div className="contact-header">
