@@ -70,13 +70,13 @@ const encode = data =>
 export default () => (
   <Formik
     initialValues={{
-      // firstName: '',
-      // lastName: '',
-      // email: '',
-      // phoneNumber: '',
-      // dobMonth: '',
-      // dobYear: '',
-      // dobDay: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      month: '',
+      year: '',
+      day: '',
       success: false,
     }}
     validationSchema={Yup.object().shape({
@@ -178,7 +178,7 @@ export default () => (
             <div className="dob-question">
               <label>Date of Birth</label>
               <div className="dob-selects">
-                <MultiSelect label="Date of Birth - Day" id="dobDay" name="dobDay" as="select" value={values.dobDay}>
+                <MultiSelect label="Date of Birth - Day" id="day" name="day" as="select" value={values.day}>
                   <option value="">---</option>
                   <option value="01">01</option>
                   <option value="02">02</option>
@@ -212,7 +212,7 @@ export default () => (
                   <option value="30">30</option>
                   <option value="31">31</option>
                 </MultiSelect>
-                <MultiSelect label="Date of Birth - Month" id="dobMonth" name="dobMonth" value={values.dobMonth}>
+                <MultiSelect label="Date of Birth - Month" id="month" name="month" value={values.month}>
                   <option value="">---</option>
                   <option value="01">January</option>
                   <option value="02">February</option>
@@ -227,7 +227,7 @@ export default () => (
                   <option value="11">November</option>
                   <option value="12">December</option>
                 </MultiSelect>
-                <MultiSelect label="Date of Birth - Year" id="dobYear" name="dobYear" value={values.dobYear}>
+                <MultiSelect label="Date of Birth - Year" id="year" name="year" value={values.year}>
                   <option value="">---</option>
                   <option value="2002">2002</option>
                   <option value="2003">2003</option>
