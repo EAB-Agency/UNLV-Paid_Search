@@ -90,13 +90,13 @@ export default () => (
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'unlv-contact', ...values }),
+        body: encode({ 'form-name': 'paid-search-landing-unlv', ...values }),
       })
         .then(() => {
           // alert('Success');
           actions.setFieldValue('success', true);
-          // alert(JSON.stringify(values, null, 2));
-          // alert(encode({ 'form-name': 'unlv-contact', ...values }));
+          alert(JSON.stringify(values, null, 2));
+          alert(encode({ 'form-name': 'paid-search-landing-unlv', ...values }));
           // actions.resetForm();
           // navigate('/continue');
         })
@@ -110,6 +110,7 @@ export default () => (
   >
     {({ values, touched, errors, isSubmitting }) => (
       <Form name="paid-search-landing-unlv" className="form" data-netlify>
+        <input type="hidden" name="form-name" value="paid-search-landing-unlv" />
         {!values.success && (
           <div className="form-fields">
             <div className="contact-header">
