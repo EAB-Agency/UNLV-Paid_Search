@@ -95,8 +95,8 @@ export default () => (
         .then(() => {
           // alert('Success');
           actions.setFieldValue('success', true);
-          alert(JSON.stringify(values, null, 2));
-          alert(encode({ 'form-name': 'paid-search-landing-unlv', ...values }));
+          // alert(JSON.stringify(values, null, 2));
+          // alert(encode({ 'form-name': 'paid-search-landing-unlv', ...values }));
           // actions.resetForm();
           // navigate('/continue');
         })
