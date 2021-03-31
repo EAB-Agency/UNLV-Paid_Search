@@ -128,15 +128,6 @@ export default () => (
               error={touched.firstName && errors.firstName}
             />
             <TextInput
-              label="Middle Name"
-              id="MiddleName"
-              name="middleName"
-              type="text"
-              placeholder="First Name"
-              aria-label="middleName"
-              error={touched.middleName && errors.middleName}
-            />
-            <TextInput
               label="Last Name"
               name="lastName"
               id="lastName"
