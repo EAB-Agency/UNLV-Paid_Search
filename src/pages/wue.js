@@ -125,6 +125,7 @@ export default () => (
             </ul>
           </Container>
         </section>
+
         <section className="finaid">
           <Container className="cols">
             <div className="col-60">

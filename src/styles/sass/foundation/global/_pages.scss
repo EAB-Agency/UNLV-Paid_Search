@@ -129,12 +129,12 @@
     align-items: flex-start;
   }
 
-  .wue & div[class*="Container"] {
-    @media (min-width: $mq-900) {
-      @include fluidRem(padding-top, 2rem, 5rem);
-      @include fluidRem(padding-bottom, 2rem, 5rem);
-    }
-  }
+  // .wue & div[class*="Container"] {
+  //   @media (min-width: $mq-900) {
+  //     @include fluidRem(padding-top, 2rem, 5rem);
+  //     @include fluidRem(padding-bottom, 2rem, 5rem);
+  //   }
+  // }
 
   h1 {
     color: white;
@@ -182,7 +182,7 @@ section {
     max-width: $mq-1000;
     margin-top: -1rem;
     background: $c-darkgrey;
-    @include fluidRem(padding, 1rem, 3rem);
+    // @include fluidRem(padding, 1rem, 3rem);
 
     @media (min-width: $mq-700) {
       flex-direction: row;
@@ -234,23 +234,14 @@ section {
       display: block;
       position: relative;
       overflow: hidden;
-      @include fluidRem(padding, 0 1rem, 0 3rem);
-      // @include fluidRem(padding, 1rem, 3rem);
+      @include fluidRem(padding, 1rem, 3rem);
       color: white;
       @include fluidRem(font-size, 1rem, 1.5rem);
 
       strong {
         color: lighten($c-red, 30%);
       }
-    }
-  }
-}
 
-.standard .landing-intro {
-  div[class*="Container"] {
-    padding: 0;
-    p {
-      @include fluidRem(padding, 1rem, 3rem);
       @media (min-width: $mq-700) {
         padding-left: 4rem;
         &::before {
@@ -266,8 +257,45 @@ section {
         }
       }
     }
+
+    // p {
+    //   display: block;
+    //   position: relative;
+    //   overflow: hidden;
+    //   @include fluidRem(padding, 0 1rem, 0 3rem);
+    //   // @include fluidRem(padding, 1rem, 3rem);
+    //   color: white;
+    //   @include fluidRem(font-size, 1rem, 1.5rem);
+
+    //   strong {
+    //     color: lighten($c-red, 30%);
+    //   }
+    // }
   }
 }
+
+// .standard .landing-intro {
+//   div[class*="Container"] {
+//     padding: 0;
+//     p {
+//       @include fluidRem(padding, 1rem, 3rem);
+//       @media (min-width: $mq-700) {
+//         padding-left: 4rem;
+//         &::before {
+//           content: "";
+//           display: block;
+//           position: absolute;
+//           top: 50%;
+//           left: 0;
+//           transform: translateY(-50%);
+//           border-left: 2rem solid lighten($c-gray, 58%);
+//           border-top: 10em solid transparent;
+//           border-bottom: 10em solid transparent;
+//         }
+//       }
+//     }
+//   }
+// }
 
 .graduates {
   .intro {
@@ -563,11 +591,15 @@ section {
 
 .live-las-vegas {
   display: block;
-  background: $c-darkgrey url(../../assets/las_vegas_strip-D71216_002.jpg)
+  background: $c-darkgrey url(../../assets/las_vegas_strip-D71216_002-lq.jpg)
     no-repeat center;
   background-size: cover;
-  background-attachment: fixed;
   @include fluidRem(padding, 10rem 1rem, 8rem 1rem);
+
+  @media (min-width: $mq-800) {
+    background: $c-darkgrey url(../../assets/las_vegas_strip-D71216_002.jpg)
+      no-repeat center;
+  }
 
   .content {
     display: block;
