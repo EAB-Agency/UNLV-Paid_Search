@@ -39,11 +39,6 @@ export const SEO = ({ title = defaultTitle, description = defaultDescription }) 
       <script type="application/ld+json">{structuredDataOrganization}</script>
       <title>{title}</title>
       <html lang="en" dir="ltr" />
-
-      <script
-        type="text/javascript"
-        src="//university-of-nevada-las-vegas.contact-server.com/form/generate.js?id=1"
-      ></script>
     </Helmet>
   );
 };
