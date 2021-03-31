@@ -109,7 +109,7 @@ export default () => (
     }}
   >
     {({ values, touched, errors, isSubmitting }) => (
-      <Form name="unlv-contact-2" className="form" data-netlify>
+      <Form name="paid-search-landing-unlv" className="form" data-netlify>
         {!values.success && (
           <div className="form-fields">
             <div className="contact-header">
