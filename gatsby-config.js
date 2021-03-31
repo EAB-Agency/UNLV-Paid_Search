@@ -18,36 +18,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     'gatsby-plugin-sass',
     {
-      resolve: 'gatsby-plugin-google-fonts-v2',
-      options: {
-        fonts: [
-          {
-            family: 'Roboto Condensed',
-            variable: true,
-            weights: ['400,800'],
-          },
-          {
-            family: 'Roboto Slab',
-            variable: true,
-            weights: ['400,800'],
-          },
-          {
-            family: 'Lato',
-            variable: true,
-            weights: ['400..900'],
-          },
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-modal-routing`,
       options: {
         appElement: '#___gatsby',
         modalProps: {
           className: 'modalClass',
           ariaHideApp: false,
-          // shouldCloseOnOverlayClick: false,
-          // shouldCloseOnEsc: false,
         },
       },
     },

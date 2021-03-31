@@ -97,7 +97,7 @@ export default () => (
           actions.setFieldValue('success', true);
           // alert(JSON.stringify(values, null, 2));
           // alert(encode({ 'form-name': 'unlv-contact', ...values }));
-          actions.resetForm();
+          // actions.resetForm();
           // navigate('/continue');
         })
         .catch(() => {
@@ -109,7 +109,7 @@ export default () => (
     }}
   >
     {({ values, touched, errors, isSubmitting }) => (
-      <Form name="unlv-contact" className="form" data-netlify>
+      <Form name="unlv-contact-2" className="form" data-netlify>
         {!values.success && (
           <div className="form-fields">
             <div className="contact-header">
