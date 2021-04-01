@@ -76,9 +76,8 @@ const ContactForm = props => {
         'Last Name': '',
         Email: '',
         'Home Phone': '',
-        dobMonth: '',
-        dobYear: '',
-        dobDay: '',
+        'Birth date': '',
+        Campaign: 'default',
         success: false,
       }}
       validationSchema={Yup.object().shape({
@@ -89,16 +88,24 @@ const ContactForm = props => {
           .required('Your email address is required'),
       })}
       onSubmit={(values, actions) => {
+        actions.setFieldValue(values.Campaign, campaign);
+        const payload = {
+          ...values,
+          Campaign: campaign,
+        }; // Construct the new payload
+        actions.setValues(payload);
+        // console.log('payloadpayloadpayload', payload);
+        // console.log('valuesvaluesvalues', values);
         fetch('/?no-cache=1', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encode({ 'form-name': 'unlv-contact', ...values }),
+          body: encode({ 'form-name': 'unlv-contact', ...payload }),
         })
           .then(() => {
             // alert('Success');
             actions.setFieldValue('success', true);
-            // alert(JSON.stringify(values, null, 2));
-            // alert(encode({ 'form-name': 'unlv-contact', ...values }));
+            // alert(JSON.stringify(payload, null, 2));
+            // alert(encode({ 'form-name': 'unlv-contact', ...payload }));
             // actions.resetForm();
             // navigate('/continue');
           })
@@ -110,10 +117,11 @@ const ContactForm = props => {
           .finally(() => actions.setSubmitting(false));
       }}
     >
-      {({ values, touched, errors, isSubmitting }) => (
+      {({ values, touched, errors, isSubmitting, setFieldValue }) => (
         <Form name="unlv-contact" className="form" data-netlify>
           <input type="hidden" name="form-name" value="unlv-contact" />
           <input type="hidden" name="Campaign" value={campaign} />
+          <input type="hidden" name="Birth date" />
           {!values.success && (
             <div className="form-fields">
               <div className="contact-header">
@@ -181,7 +189,16 @@ const ContactForm = props => {
               <div className="dob-question">
                 <label>Date of Birth</label>
                 <div className="dob-selects">
-                  <MultiSelect label="Date of Birth - Month" id="dobMonth" name="dobMonth" value={values.dobMonth}>
+                  <MultiSelect
+                    label="Date of Birth - Month"
+                    id="dobMonth"
+                    name="dobMonth"
+                    value={values.dobMonth}
+                    onChange={e => {
+                      setFieldValue('Birth date', `${e.target.value}/${values.dobDay}/${values.dobYear}`);
+                      setFieldValue('dobMonth', e.target.value);
+                    }}
+                  >
                     <option value="">---</option>
                     <option value="01">January</option>
                     <option value="02">February</option>
@@ -196,7 +213,17 @@ const ContactForm = props => {
                     <option value="11">November</option>
                     <option value="12">December</option>
                   </MultiSelect>
-                  <MultiSelect label="Date of Birth - Day" id="dobDay" name="dobDay" as="select" value={values.dobDay}>
+                  <MultiSelect
+                    label="Date of Birth - Day"
+                    id="dobDay"
+                    name="dobDay"
+                    as="select"
+                    value={values.dobDay}
+                    onChange={e => {
+                      setFieldValue('Birth date', `${values.dobMonth}/${e.target.value}/${values.dobYear}`);
+                      setFieldValue('dobDay', e.target.value);
+                    }}
+                  >
                     <option value="">---</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -230,7 +257,16 @@ const ContactForm = props => {
                     <option value="30">30</option>
                     <option value="31">31</option>
                   </MultiSelect>
-                  <MultiSelect label="Date of Birth - Year" id="dobYear" name="dobYear" value={values.dobYear}>
+                  <MultiSelect
+                    label="Date of Birth - Year"
+                    id="dobYear"
+                    name="dobYear"
+                    value={values.dobYear}
+                    onChange={e => {
+                      setFieldValue('Birth date', `${values.dobMonth}/${values.dobDay}/${e.target.value}`);
+                      setFieldValue('dobYear', e.target.value);
+                    }}
+                  >
                     <option value="">---</option>
                     <option value="2002">2002</option>
                     <option value="2003">2003</option>
