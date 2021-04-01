@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Formik, Form, ErrorMessage, useField } from 'formik';
 import * as Yup from 'yup';
+import MaskedInput from 'react-text-mask';
 
 import { Button, StyledInput, StyledSelect } from 'components/common';
 import { Error, Center, InputField } from './styles';
@@ -62,6 +63,7 @@ const MultiSelect = ({ label, ...props }) => {
   );
 };
 
+const phoneNumberMask = [/[1-9]/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 const encode = data =>
   Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
@@ -117,7 +119,7 @@ const ContactForm = props => {
           .finally(() => actions.setSubmitting(false));
       }}
     >
-      {({ values, touched, errors, isSubmitting, setFieldValue }) => (
+      {({ values, touched, errors, isSubmitting, setFieldValue, handleChange, handleBlur }) => (
         <Form name="unlv-contact" className="form" data-netlify>
           <input type="hidden" name="form-name" value="unlv-contact" />
           <input type="hidden" name="Campaign" value={campaign} />
@@ -128,7 +130,6 @@ const ContactForm = props => {
                 <h1>Learn More About Degree Options and Financial Aid </h1>
                 <p>Share your information and we’ll be in touch soon.</p>
               </div>
-
               <TextInput
                 label="First Name"
                 id="firstName"
@@ -176,7 +177,23 @@ const ContactForm = props => {
                   </MultiSelect>
                 </div>
               </div>
-              <TextInput
+              <label htmlFor="Home Phone">
+                Phone Number
+                <MaskedInput
+                  label="Phone Number"
+                  aria-label="Phone Number"
+                  name="Home Phone"
+                  placeholder="Phone Number"
+                  type="text"
+                  error={touched['Home Phone'] && errors['Home Phone']}
+                  mask={phoneNumberMask}
+                  id="phoneNumber"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  autocomplete="autocomplete_off_hack_xfr4!k"
+                />
+              </label>
+              {/* <TextInput
                 label="Phone Number"
                 id="phoneNumber"
                 aria-label="Phone Number"
@@ -185,7 +202,7 @@ const ContactForm = props => {
                 name="Home Phone"
                 placeholder="Phone Number"
                 error={touched['Home Phone'] && errors['Home Phone']}
-              />
+              /> */}
               <div className="dob-question">
                 <label>Date of Birth</label>
                 <div className="dob-selects">
@@ -277,7 +294,6 @@ const ContactForm = props => {
                   </MultiSelect>
                 </div>
               </div>
-
               {/* <Debug /> */}
               <Center className="type-button">
                 <Button secondary type="submit" disabled={isSubmitting}>
