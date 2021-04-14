@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Formik, Form, ErrorMessage, useField } from 'formik';
 import * as Yup from 'yup';
 import MaskedInput from 'react-text-mask';
+import useGTM from '@elgorditosalsero/react-gtm-hook';
 
 import { Button, StyledInput, StyledSelect } from 'components/common';
 import { Error, Center, InputField } from './styles';
@@ -71,7 +72,15 @@ const encode = data =>
 
 const ContactForm = props => {
   const { campaign } = props;
-
+  const { sendDataToGTM } = useGTM();
+  const handleFormSubmit = () =>
+    sendDataToGTM({
+      event: 'formSubmission',
+      formType: 'Contact us',
+      value: 'success',
+      formPosition: 'modal',
+    });
+  // useEffect(() => init({ id: 'GTM-NGPQPPM' }), [init]);
   return (
     <Formik
       initialValues={{
@@ -107,6 +116,7 @@ const ContactForm = props => {
           .then(() => {
             // alert('Success');
             actions.setFieldValue('success', true);
+            handleFormSubmit();
             // alert(JSON.stringify(payload, null, 2));
             // alert(encode({ 'form-name': 'unlv-contact', ...payload }));
             // actions.resetForm();

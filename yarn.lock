@@ -1021,6 +1021,11 @@
   dependencies:
     "@date-io/core" "^1.3.13"
 
+"@elgorditosalsero/react-gtm-hook@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@elgorditosalsero/react-gtm-hook/-/react-gtm-hook-2.0.3.tgz#b8bde2d201c9a2e6f4ec8a683d10af865e9a7033"
+  integrity sha512-WGQYpvRM7WOhSDDWCEA8tt5ro2AGH1cl7gD70BG5HvWkQr4JB+HCMksKFQj4LMCzENfVa62j13cmUJdbIucpWg==
+
 "@emotion/hash@^0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
