@@ -71,6 +71,7 @@ const encode = data =>
 
 const ContactForm = props => {
   const { campaign } = props;
+
   return (
     <Formik
       initialValues={{
@@ -120,7 +121,7 @@ const ContactForm = props => {
       }}
     >
       {({ values, touched, errors, isSubmitting, setFieldValue, handleChange, handleBlur }) => (
-        <Form name="unlv-contact" className="form" data-netlify>
+        <Form name="unlv-contact" className={values.success ? 'form success' : 'form'} data-netlify>
           <input type="hidden" name="form-name" value="unlv-contact" />
           <input type="hidden" name="Campaign" value={campaign} />
           <input type="hidden" name="Birth date" />
@@ -190,7 +191,7 @@ const ContactForm = props => {
                   id="phoneNumber"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  autocomplete="autocomplete_off_hack_xfr4!k"
+                  autoComplete="autocomplete_off_hack_xfr4!k"
                 />
               </label>
               {/* <TextInput
