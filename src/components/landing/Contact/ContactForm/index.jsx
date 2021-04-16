@@ -70,6 +70,11 @@ const encode = data =>
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join('&');
 
+const ageOfYoungestStudent = 14;
+const ageOfOldestStudent = 40;
+const startYear = new Date().getFullYear() - ageOfYoungestStudent;
+const years = Array.from(new Array(ageOfOldestStudent - ageOfYoungestStudent + 1), (val, index) => startYear - index);
+
 const ContactForm = props => {
   const { campaign } = props;
   const { sendDataToGTM } = useGTM();
@@ -185,6 +190,7 @@ const ContactForm = props => {
                     <option value="2022">2022</option>
                     <option value="2023">2023</option>
                     <option value="2024">2024</option>
+                    <option value="other">Other</option>
                   </MultiSelect>
                 </div>
               </div>
@@ -204,16 +210,7 @@ const ContactForm = props => {
                   autoComplete="autocomplete_off_hack_xfr4!k"
                 />
               </label>
-              {/* <TextInput
-                label="Phone Number"
-                id="phoneNumber"
-                aria-label="Phone Number"
-                component="input"
-                type="number"
-                name="Home Phone"
-                placeholder="Phone Number"
-                error={touched['Home Phone'] && errors['Home Phone']}
-              /> */}
+
               <div className="dob-question">
                 <label>Date of Birth</label>
                 <div className="dob-selects">
@@ -296,12 +293,11 @@ const ContactForm = props => {
                     }}
                   >
                     <option value="">---</option>
-                    <option value="2002">2002</option>
-                    <option value="2003">2003</option>
-                    <option value="2004">2004</option>
-                    <option value="2005">2005</option>
-                    <option value="2006">2006</option>
-                    <option value="2007">2007</option>
+                    {years.map((year, index) => (
+                      <option key={`year${index}`} value={year}>
+                        {year}
+                      </option>
+                    ))}
                   </MultiSelect>
                 </div>
               </div>
