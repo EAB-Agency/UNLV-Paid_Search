@@ -28,7 +28,7 @@ export default () => (
             <p>
               At the <strong>University of Nevada, Las Vegas</strong> College of Hospitality
             </p>
-            <Link className="button top" to="/contact" state={{ campaign: 'wue' }} asModal>
+            <Link className="button top inquire" to="/contact" state={{ campaign: 'wue' }} asModal>
               Learn More About Our Program
             </Link>
           </Container>
@@ -150,7 +150,7 @@ export default () => (
                   the Northern Marianas Islands
                 </strong>
               </p>
-              <Link className="button middle" to="/contact" state={{ campaign: 'wue' }} asModal>
+              <Link className="button middle inquire" to="/contact" state={{ campaign: 'wue' }} asModal>
                 Contact Us to Learn More
               </Link>
             </div>
@@ -324,7 +324,7 @@ export default () => (
 
         <aside className="cta">
           <Container>
-            <Link className="button bottom" to="/contact" state={{ campaign: 'wue' }} asModal>
+            <Link className="button bottom inquire" to="/contact" state={{ campaign: 'wue' }} asModal>
               Get in Touch With us to Learn More About Our Program
             </Link>
           </Container>
