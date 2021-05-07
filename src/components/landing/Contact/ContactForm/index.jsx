@@ -312,7 +312,11 @@ const ContactForm = props => {
           {values.success && (
             <InputField>
               <Center>
-                <h4>Thank you for submitting your infomation! We will be in touch with you soon!</h4>
+                <h4>Thank you for submitting your information! We will be in touch with you soon! </h4>
+                <p>
+                  For more information please visit us at{' '}
+                  <a href="https://www.unlv.edu/hospitality">www.unlv.edu/hospitality</a>
+                </p>
               </Center>
             </InputField>
           )}
